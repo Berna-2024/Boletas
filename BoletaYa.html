@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Boletas SUNAT</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+       <header class="header-con-logo">
+    <div class="logo-container">
+        <img src="Logo/comercio.jpg" class="logo-principal">
+        <div class="titulos">
+            <h1>Sistema de Boletas Electrónicas</h1>
+            <p class="subtitulo">Grupo ADIBYFE</p>
+        </div>
+    </div>
+</header>
+
+        <div class="form-container">
+            <form id="boletaForm">
+                <fieldset>
+                    <legend>Datos del Emisor</legend>
+                    <div class="input-group">
+                        <label for="ruc">RUC:</label>
+                        <input type="text" id="ruc" pattern="\d{11}" required placeholder="11 dígitos">
+                    </div>
+                    <div class="input-group">
+                        <label for="razon-social">Razón Social:</label>
+                        <input type="text" id="razon-social" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" id="direccion" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Datos del Documento</legend>
+                    <div class="input-group">
+                        <label for="tipo-documento">Tipo:</label>
+                        <select id="tipo-documento" required>
+                            <option value="03">Boleta (03)</option>
+                            <option value="01">Factura (01)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="serie">Serie:</label>
+                        <input type="text" id="serie" pattern="[BF][A-Z0-9]{3}" required placeholder="Ej: B001">
+                    </div>
+                    <div class="input-group">
+                        <label for="correlativo">Correlativo:</label>
+                        <input type="number" id="correlativo" min="1" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Datos del Cliente</legend>
+                    <div class="input-group">
+                        <label for="tipo-doc">Tipo Doc.:</label>
+                        <select id="tipo-doc" required>
+                            <option value="1">DNI</option>
+                            <option value="6">RUC</option>
+                            <option value="0">Sin Documento</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="num-doc">Número Doc.:</label>
+                        <input type="text" id="num-doc">
+                    </div>
+                    <div class="input-group">
+                        <label for="nombre-cliente">Nombre/Razón Social:</label>
+                        <input type="text" id="nombre-cliente" required>
+                    </div>
+                </fieldset>
+
+                <h3>Productos/Servicios</h3>
+                <div id="productos-container"></div>
+                <button type="button" id="btn-agregar-producto" class="btn-add">➕ Agregar Producto</button>
+
+                <div class="totales">
+                    <div class="total-item">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">S/ 0.00</span>
+                    </div>
+                    <div class="total-item">
+                        <span>IGV (18%):</span>
+                        <span id="igv">S/ 0.00</span>
+                    </div>
+                    <div class="total-item total">
+                        <span>Total:</span>
+                        <span id="total">S/ 0.00</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" id="btn-generar" class="btn-primary">Generar Boleta</button>
+                    <button type="button" id="btn-pdf" class="btn-secondary" disabled>Descargar PDF</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="boleta-preview" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
