@@ -43,7 +43,6 @@ h1 {
     white-space: nowrap; /* Evita que el título se divida en dos líneas */
 }
 
-
 .logo-placeholder {
     width: 100px;
     height: 60px;
@@ -257,6 +256,41 @@ button {
     display: none;
 }
 
+/* ====================== */
+/* ESTILOS BOTÓN REINICIO */
+/* ====================== */
+#btn-reiniciar-container {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+.btn-tertiary {
+    background: #e67e22;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+.btn-tertiary:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-tertiary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
 /* Estilos específicos para la boleta generada */
 .boleta-electronica {
     font-family: Arial, sans-serif;
@@ -415,6 +449,18 @@ tr:last-child td {
 
     .boleta-totales .total-item {
         max-width: 100%;
+    }
+
+    /* Estilos responsive para botón de reinicio */
+    #btn-reiniciar-container {
+        margin: 20px 0;
+        padding: 15px 0;
+    }
+    
+    .btn-tertiary {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px;
     }
 }
 

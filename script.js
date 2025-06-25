@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnAgregarProducto = document.getElementById('btn-agregar-producto');
     const btnGenerar = document.getElementById('btn-generar');
     const btnPDF = document.getElementById('btn-pdf');
+    const btnReiniciar = document.getElementById('btn-reiniciar');
+    const btnReiniciarContainer = document.getElementById('btn-reiniciar-container');
     const boletaPreview = document.getElementById('boleta-preview');
 
     // Función para mostrar errores
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Evento para agregar productos
     btnAgregarProducto.addEventListener('click', agregarProducto);
 
-    // Evento para generar boleta - CORREGIDO
+    // Evento para generar boleta
     btnGenerar.addEventListener('click', function(e) {
         e.preventDefault();
         generarBoleta();
@@ -45,6 +47,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Evento para descargar PDF
     btnPDF.addEventListener('click', descargarPDF);
+
+    // Evento para reiniciar formulario
+    btnReiniciar.addEventListener('click', reiniciarFormulario);
+
+    // Función para reiniciar el formulario
+    function reiniciarFormulario() {
+        // Limpiar formulario
+        form.reset();
+        
+        // Limpiar productos
+        productosContainer.innerHTML = '';
+        contadorProductos = 0;
+        agregarProducto(); // Agregar producto inicial
+        
+        // Limpiar vista previa
+        boletaPreview.innerHTML = '';
+        boletaPreview.classList.add('hidden');
+        
+        // Ocultar botón de reinicio
+        btnReiniciarContainer.classList.add('hidden');
+        
+        // Deshabilitar botón PDF
+        btnPDF.disabled = true;
+        
+        // Restablecer totales
+        document.getElementById('subtotal').textContent = 'S/ 0.00';
+        document.getElementById('igv').textContent = 'S/ 0.00';
+        document.getElementById('total').textContent = 'S/ 0.00';
+        
+        // Restablecer fecha a actual
+        fechaInput.valueAsDate = new Date();
+        
+        // Enfocar el primer campo
+        document.getElementById('ruc').focus();
+    }
 
     // Función para agregar un nuevo producto
     function agregarProducto() {
@@ -110,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('total').textContent = `S/ ${total.toFixed(2)}`;
     }
 
-    // Función para generar la boleta - COMPATIBLE CON TU HTML
+    // Función para generar la boleta
     function generarBoleta() {
         console.log("Iniciando generación de boleta...");
         
@@ -192,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const igv = subtotal * 0.18;
         const total = subtotal + igv;
         
-        // Generar HTML de la boleta - ESTILO SUNAT
+        // Generar HTML de la boleta
         const boletaHTML = `
             <div id="boleta-content" class="boleta-electronica">
                 <div class="boleta-header">
@@ -264,6 +301,11 @@ document.addEventListener('DOMContentLoaded', function() {
         boletaPreview.innerHTML = boletaHTML;
         boletaPreview.classList.remove('hidden');
         btnPDF.disabled = false;
+        btnReiniciarContainer.classList.remove('hidden');
+        
+        // Hacer scroll al botón de reinicio
+        btnReiniciarContainer.scrollIntoView({ behavior: 'smooth' });
+        
         console.log("Boleta generada exitosamente");
     }
 
