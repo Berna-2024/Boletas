@@ -76,7 +76,149 @@
                 <p>Si necesitas una copia impresa, usa el botón "Descargar PDF".</p>
             </div>
             
-            <a href="index.html" class="volver-link">← Volver al generador de boletas</a>
+            <div class="tutorial-ejemplos">
+    <h2>Ejemplos Prácticos</h2>
+    
+    <div class="ejemplo-container">
+        <h3>Ejemplo de Boleta Electrónica</h3>
+        <div class="formulario-ejemplo">
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">RUC:</span>
+                <span class="ejemplo-valor">20123456789</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Razón Social:</span>
+                <span class="ejemplo-valor">TIENDAS PERÚ SAC</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Tipo:</span>
+                <span class="ejemplo-valor">Boleta (03)</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Serie/Número:</span>
+                <span class="ejemplo-valor">B001-4562</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Cliente (DNI):</span>
+                <span class="ejemplo-valor">Juan Pérez - 76543210</span>
+            </div>
+            <div class="ejemplo-productos">
+                <h4>Productos:</h4>
+                <ul>
+                    <li>2 x Mouse Inalámbrico - S/ 35.00 c/u</li>
+                    <li>1 x Teclado Gamer - S/ 120.00 c/u</li>
+                </ul>
+            </div>
+            <div class="ejemplo-total">
+                <strong>Total: S/ 190.00</strong> (Subtotal: S/ 161.02 + IGV: S/ 28.98)
+            </div>
+        </div>
+    </div>
+    
+    <div class="ejemplo-container">
+        <h3>Ejemplo de Factura Electrónica</h3>
+        <div class="formulario-ejemplo">
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">RUC:</span>
+                <span class="ejemplo-valor">20123456789</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Razón Social:</span>
+                <span class="ejemplo-valor">TIENDAS PERÚ SAC</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Tipo:</span>
+                <span class="ejemplo-valor">Factura (01)</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Serie/Número:</span>
+                <span class="ejemplo-valor">F001-7895</span>
+            </div>
+            <div class="ejemplo-campo">
+                <span class="ejemplo-etiqueta">Cliente (RUC):</span>
+                <span class="ejemplo-valor">EMPRESA ABC S.A.C. - 20567891234</span>
+            </div>
+            <div class="ejemplo-productos">
+                <h4>Productos/Servicios:</h4>
+                <ul>
+                    <li>5 x Licencia Software - S/ 150.00 c/u</li>
+                    <li>1 x Servicio Instalación - S/ 300.00 c/u</li>
+                </ul>
+            </div>
+            <div class="ejemplo-total">
+                <strong>Total: S/ 1,050.00</strong> (Subtotal: S/ 889.83 + IGV: S/ 160.17)
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ESTILOS PARA LOS EJEMPLOS */
+    .tutorial-ejemplos {
+        margin-top: 40px;
+        border-top: 2px solid #3498db;
+        padding-top: 20px;
+    }
+    
+    .ejemplo-container {
+        background: #f9f9f9;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-left: 4px solid #3498db;
+    }
+    
+    .formulario-ejemplo {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .ejemplo-campo {
+        display: flex;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #eee;
+    }
+    
+    .ejemplo-etiqueta {
+        font-weight: bold;
+        width: 150px;
+        color: #555;
+    }
+    
+    .ejemplo-valor {
+        flex-grow: 1;
+    }
+    
+    .ejemplo-productos {
+        margin: 20px 0;
+        padding: 15px;
+        background: #f5f5f5;
+        border-radius: 5px;
+    }
+    
+    .ejemplo-productos ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .ejemplo-productos li {
+        padding: 5px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .ejemplo-total {
+        text-align: right;
+        font-size: 1.1em;
+        padding: 10px;
+        background: #e8f4fc;
+        border-radius: 5px;
+    }
+</style>
+
+<a href="index.html" class="volver-link">← Volver al generador de boletas</a>
         </div>
     </div>
 </body>
